@@ -27,7 +27,6 @@ git config --global user.name "Giuliana Marquesi"
 echo " "
 echo "---"
 echo " Decriptando a chave kukinho. Insira a senha simetrica"
-cd $HOME
 gpg --batch --yes -d $ARQUIVO_PASS_SIMETRICO | gpg --batch --yes --allow-secret-key-import --import 
 
 echo " "
