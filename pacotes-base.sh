@@ -22,7 +22,7 @@ pacotes=("vim" "tmux" "git" "bash-completion" "pass" "mutt" "pandoc" "i3status" 
 
 #Criando um logfile
 #
-logfile="pacotes-base.log"
+logfile=".pacotes-base.log"
 
 # É necessário saber qual é a base de distribuição usada. Preferi usar uma variavel pra não haver
 # confusoes
