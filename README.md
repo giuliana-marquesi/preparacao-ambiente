@@ -31,5 +31,3 @@ Baixar o conteudo deste diretório
 3 - dotfiles - Neste passo, deve-se ir no diretório dot e executar o arquivo **configurador.sh**
 
 4 - pacotes-graficos
-
-5 - xfce-teclado
