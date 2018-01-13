@@ -28,7 +28,7 @@ Baixar o conteudo deste diretório
 
 2 - seguranca-configuracao
 
-3 - dotfiles
+3 - dotfiles - Neste passo, deve-se ir no diretório dot e executar o arquivo **configurador.sh**
 
 4 - pacotes-graficos
 
