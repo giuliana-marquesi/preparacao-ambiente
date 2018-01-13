@@ -36,6 +36,7 @@ echo "--------------------------------------------"
 echo "	Configurando o bashrc para que inicie com TMUX"
 echo "--------------------------------------------"
 
+echo '#TMUX' >> ~/.bashrc
 echo '[[ $- != *i* ]] && return' >> ~/.bashrc
 echo '[[ -z "$TMUX" ]] && exec tmux' >> ~/.bashrc
 
@@ -43,5 +44,7 @@ echo "--------------------------------------------"
 echo "	Configurando o bashrc para que modifique o PS1"
 echo "--------------------------------------------"
 
-echo 'PS1="${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$"' >> ~/.bashrc
+echo " " >> ~/.bashrc
+echo '#PS1 Personalizado' >> ~/.bashrc
+echo 'PS1="\[\033[01;34m\]\w\[\033[01;34m\]\[\033[01;32m\]\$\[\033[00m\] "' >> ~/.bashrc 
 
