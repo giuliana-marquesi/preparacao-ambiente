@@ -31,7 +31,7 @@ alterando seu conteúdo
 	cp .env.exemplo .env
 
 ```
-# Possuir as chaves privadas referentes ao pass e ao email privado
+## Possuir as chaves privadas referentes ao pass e ao email privado
 
 É necessario duas chaves privadas encriptogrfadas simmetricamente.
 
