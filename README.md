@@ -17,10 +17,20 @@ Para copiar sem dramas
 xclip -sel clip < ~/.ssh/id_rsa.pub
 ```
 
-Baixar o conteudo deste diretório
+## Baixar o conteudo deste diretório
 
 - Pode ser baixando os arquivos manualmente ou copiando
 - Ou usando o git clone tanto http ou git
+
+## Alterar arquivo .env.exemplo
+
+É necessario ter um arquivo .env, para isso basta copiar o arquivo .env.exemplo para .env e
+alterando seu conteúdo
+
+```
+	cp .env.exemplo .env
+
+```
 
 ## Ordem sugerida de scripts
 
