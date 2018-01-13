@@ -4,7 +4,7 @@ Não são muitos passos para iniciar
 
 ## Chaves ssh
 
-É preciso gerar e inserir uma nova chave ssh no github para que dê certo
+É preciso gerar e inserir uma nova chave ssh no gitlab para que dê certo
 
 ```
 ssh-keygen -t rsa -C "your.email@example.com" -b 4096
