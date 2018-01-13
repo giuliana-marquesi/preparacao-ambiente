@@ -16,6 +16,9 @@
 ###
 ##########################################################################################################################
 
+#Incluindo o souce .env para as variaveis de ambiente
+source .env
+
 echo "---"
 echo "Configurando git com config user.email e user.name"
 git config --global user.email "giuliana@riseup.net"
@@ -25,18 +28,18 @@ echo " "
 echo "---"
 echo " Decriptando a chave kukinho. Insira a senha simetrica"
 cd $HOME
-gpg --batch --yes -d kukinho.sec.asc | gpg --batch --yes --allow-secret-key-import --import 
+gpg --batch --yes -d $ARQUIVO_PASS_SIMETRICO | gpg --batch --yes --allow-secret-key-import --import 
 
 echo " "
 echo "---"
 echo "Criando um novo repositorio pass com a chave do kukinho"
-pass init 7EF4651CE7C75C90BF80A93F10683B87A56CE5B6
+pass init $IDENTIFICADOR_GPG_PASS 
 echo " "
 echo "Iniciando um repositorio git no pass"
 pass git init
 echo " "
 echo "Inserindo endereco de origem"
-pass git remote add origin git@gitlab.com:giuliana-marquesi/pass-store.git
+pass git remote add origin $ORIGEM_GIT_PASS 
 echo " "
 echo "populando o chaveiro"
 pass git pull -r origin master
@@ -44,14 +47,14 @@ pass git pull -r origin master
 echo " "
 echo "---"
 echo "Decriptografando chave privada riseup"
-gpg --passphrase `pass seguranca/chaves-gpg/giuliana@riseup-simetrico` --batch --yes -d riseup.sec.asc | gpg --batch --yes --allow-secret-key-import --import 
+gpg --passphrase `pass $CAMINHO_SENHA_PASS_GPG_PRIVADO` --batch --yes -d $ARQUIVO_GPG_SIMETRICO | gpg --batch --yes --allow-secret-key-import --import 
 
 echo " "
 echo "Configurando a confibilidade da chave kukinho"
-echo -e "trust\n5\ny\n" | gpg --command-fd 0 --edit-key email@email.com
+echo -e "trust\n5\ny\n" | gpg --command-fd 0 --edit-key $ENDERECO_EMAIL_GPG_PASS
 echo " "
 echo "Configurando a confiabilidade da chave riseup"
-echo -e "trust\n5\ny\n" | gpg --command-fd 0 --edit-key giuliana@riseup.net
+echo -e "trust\n5\ny\n" | gpg --command-fd 0 --edit-key $ENDERECO_EMAIL_GPG_PRIVADO
 
 echo " "
 echo "---"
