@@ -6,12 +6,12 @@
 ###
 ###
 ###		Data de início: 09/01/18
-###		Data da última modificação: 11/01/18
+###		Data da última modificação: 13/01/18
 ###		Desenvolvido por Giuliana
 ###		Script: seguranca-configuracao.sh
 ###		Comentário: Após instalar os programas básicos e inserir a chave rsa no gitlab e github, agora é hora de 
 ###		configurar as chaves criptograficas e chaveiro de seguranca
-###
+###		sugestão de melhoria: separar em funcoes
 ###
 ###
 ##########################################################################################################################
@@ -21,17 +21,17 @@ source .env
 
 echo "---"
 echo "Configurando git com config user.email e user.name"
-git config --global user.email "giuliana@riseup.net"
-git config --global user.name "Giuliana Marquesi"
+git config --global user.email $EMAIL_GIT
+git config --global user.name $USUARIO_GIT
 
 echo " "
 echo "---"
-echo " Decriptando a chave kukinho. Insira a senha simetrica"
+echo " Decriptando a chave $ARQUIVO_PASS_SIMETRICO. Insira a senha simetrica"
 gpg --batch --yes -d $ARQUIVO_PASS_SIMETRICO | gpg --batch --yes --allow-secret-key-import --import 
 
 echo " "
 echo "---"
-echo "Criando um novo repositorio pass com a chave do kukinho"
+echo "Criando um novo repositorio pass com a chave exportada de $ARQUIVO_PASS_SIMETRICO"
 pass init $IDENTIFICADOR_GPG_PASS 
 echo " "
 echo "Iniciando um repositorio git no pass"
@@ -45,14 +45,14 @@ pass git pull -r origin master
 
 echo " "
 echo "---"
-echo "Decriptografando chave privada riseup"
+echo "Decriptografando chave privada $ARQUIVO_GPG_SIMETRICO"
 gpg --passphrase `pass $CAMINHO_SENHA_PASS_GPG_PRIVADO` --batch --yes -d $ARQUIVO_GPG_SIMETRICO | gpg --batch --yes --allow-secret-key-import --import 
 
 echo " "
-echo "Configurando a confibilidade da chave kukinho"
+echo "Configurando a confibilidade da chave $ARQUIVO_PASS_SIMETRICO"
 echo -e "trust\n5\ny\n" | gpg --command-fd 0 --edit-key $ENDERECO_EMAIL_GPG_PASS
 echo " "
-echo "Configurando a confiabilidade da chave riseup"
+echo "Configurando a confiabilidade da chave $ARQUIVO_GPG_SIMETRICO"
 echo -e "trust\n5\ny\n" | gpg --command-fd 0 --edit-key $ENDERECO_EMAIL_GPG_PRIVADO
 
 echo " "
