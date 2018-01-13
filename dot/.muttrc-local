@@ -1,0 +1,26 @@
+
+# Receive
+set imap_user = giuliana@riseup.net
+set folder    = imaps://giuliana@mail.riseup.net/
+set imap_check_subscribed
+
+# Folder
+set spoolfile = +INBOX
+set postponed = +Drafts
+set record    = +Sent
+
+source "gpg -d ~/.mutt/password.gpg |"
+
+#Conta
+set realname = 'Giuliana Marquesi'
+set from = giuliana@riseup.net
+
+# Send
+set smtp_url  = smtps://$imap_user@mail.riseup.net/
+set smtp_pass = $imap_pass
+
+# Connection
+set ssl_force_tls = yes
+set ssl_starttls  = yes
+
+source ~/.mutt/gpg-config
