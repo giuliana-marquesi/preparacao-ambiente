@@ -25,7 +25,11 @@ Baixar o conteudo deste diretório
 ## Ordem sugerida de scripts
 
 1 - pacotes-base
+
 2 - seguranca-configuracao
+
 3 - dotfiles
+
 4 - pacotes-graficos
+
 5 - xfce-teclado
