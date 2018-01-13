@@ -26,7 +26,7 @@ escolhas=()
 
 #Criando um logfile
 #
-logfile="pacotes-graficos.log"
+logfile=".pacotes-graficos.log"
 
 # É necessário saber qual é a base de distribuição usada. Preferi usar uma variavel pra não haver
 # confusoes
@@ -89,38 +89,26 @@ fi
 
 #Menu para a escolha dos pacotes a serem instalados
 echo "Escolha quais programas deseja instalar separando espaco em cada numero e depois dê enter"
-  echo "------------------------------------------"
-  echo "Opções:"
-  echo
-  echo "1. Libreoffice"
-  echo "2. Calibre"
-  echo "3. VLC"
-  echo "4. GIMP"
-  echo "5. Inkscape"
-  echo "6. Virtualbox"
-  echo "7. Diretório trocas"
-  echo
-  echo -n "Quais são as opções desejadas? "
-  read escolhas
+echo "------------------------------------------"
+echo "Opções:"
+echo
+echo "1. Libreoffice"
+echo "2. Calibre"
+echo "3. VLC"
+echo "4. GIMP"
+echo "5. Inkscape"
+echo "6. Virtualbox"
+echo "7. Diretório trocas"
+echo
+echo -n "Quais são as opções desejadas? "
+read escolhas
   
 # Agora vem as instalações
 #
-# Iterar sobre a lista de escolhas e depois passar por um case que direciona o que deve ser feito
-for num in ${escolhas[@]}
-do
-	case $opcao in
-		1) instalar 'libreoffice' ;;
-		2) instalar 'calibre' ;;
-		3) instalar 'vlc' ;;
-		4) instalar 'gimp' ;;
-		5) instalar 'inkscape' ;;
-		6) instalar 'virtualbox' ;;
-		7) cd ~/Documentos && git clone $ORIGEM_GIT_TROCAS ;;
-	esac
-done
-
+# É declada a funcao de instalacao dos pacotes
+#
 instalar() {
-	if [ ! -e "/bin/$pac" ]
+	if [ ! -e "/bin/$1" ]
 	then
 		echo " "
 		if ! $c_instalador $1 >> $logfile
@@ -134,4 +122,20 @@ instalar() {
 		echo "+++ $1 já está instalado"
 	fi
 }
+
 	
+# Iterar sobre a lista de escolhas e depois passar por um case que direciona o que deve ser feito
+for num in ${escolhas[@]}
+do
+	echo "A escolha de numero $num será processada"
+	case $num in
+		1) instalar 'libreoffice' ;;
+		2) instalar 'calibre' ;;
+		3) instalar 'vlc' ;;
+		4) instalar 'gimp' ;;
+		5) instalar 'inkscape' ;;
+		6) instalar 'virtualbox' ;;
+		7) cd ~/Documentos && git clone $ORIGEM_GIT_TROCAS ;;
+	esac
+done
+
