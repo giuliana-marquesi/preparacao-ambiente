@@ -11,7 +11,7 @@
 ###		Script: seguranca-configuracao.sh
 ###		Comentário: Após instalar os programas básicos e inserir a chave rsa no gitlab e github, agora é hora de 
 ###		configurar as chaves criptograficas e chaveiro de seguranca
-###		sugestão de melhoria: separar em funcoes
+###		sugestão de melhoria: separar em funcoes e garantir que não prossiga enquanto nao resolva erros
 ###
 ###
 ##########################################################################################################################
