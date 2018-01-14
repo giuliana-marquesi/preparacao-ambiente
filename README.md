@@ -2,6 +2,11 @@
 
 Não são muitos passos para iniciar
 
+## Baixar o conteudo deste diretório
+
+- Pode ser baixando os arquivos manualmente ou copiando
+- Ou usando o git clone tanto http ou git
+
 ## Chaves ssh
 
 É preciso gerar e inserir uma nova chave ssh no gitlab para que dê certo
@@ -16,11 +21,6 @@ Para copiar sem dramas
 ```
 xclip -sel clip < ~/.ssh/id_rsa.pub
 ```
-
-## Baixar o conteudo deste diretório
-
-- Pode ser baixando os arquivos manualmente ou copiando
-- Ou usando o git clone tanto http ou git
 
 ## Alterar arquivo .env.exemplo
 
@@ -46,3 +46,10 @@ Elas devem estar no mesmo diretorio clonado
 3 - dotfiles - Neste passo, deve-se ir no diretório dot e executar o arquivo **configurador.sh**
 
 4 - pacotes-graficos
+
+# Observações:
+
+O arquivo .gpg do diretorio .mutt foi criptografado com chave privada particular, para criar seu
+próprio documento criptografado contendo senhas do mutt apenas insira as variaveis das senhas e
+criptografe com sua chave privada.
+
