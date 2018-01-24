@@ -18,7 +18,7 @@ do
 		ln $caminho ~/$prog
 	else
 		sudo rm /etc/i3status.conf
-		sudo ln -s $caminho /etc/$prog
+		sudo cp $caminho /etc/$prog
 	fi
 done
 
