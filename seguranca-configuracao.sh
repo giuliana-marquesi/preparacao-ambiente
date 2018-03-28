@@ -27,7 +27,7 @@ git config --global user.name $USUARIO_GIT
 echo " "
 echo "---"
 echo " Decriptando a chave $ARQUIVO_PASS_SIMETRICO. Insira a senha simetrica"
-gpg --batch --yes -d $ARQUIVO_PASS_SIMETRICO | gpg --batch --yes --allow-secret-key-import --import 
+gpg2 --batch --yes -d $ARQUIVO_PASS_SIMETRICO | gpg2 --batch --yes --allow-secret-key-import --import 
 
 echo " "
 echo "---"
@@ -46,7 +46,7 @@ pass git pull -r origin master
 echo " "
 echo "---"
 echo "Decriptografando chave privada $ARQUIVO_GPG_SIMETRICO"
-gpg --passphrase `pass $CAMINHO_SENHA_PASS_GPG_PRIVADO` --batch --yes -d $ARQUIVO_GPG_SIMETRICO | gpg --batch --yes --allow-secret-key-import --import 
+gpg2 --passphrase `pass $CAMINHO_SENHA_PASS_GPG_PRIVADO` --batch --yes -d $ARQUIVO_GPG_SIMETRICO |gpg2 --batch --yes --allow-secret-key-import --import 
 
 echo " "
 echo "Configurando a confibilidade da chave $ARQUIVO_PASS_SIMETRICO"
