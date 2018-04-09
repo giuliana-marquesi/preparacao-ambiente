@@ -50,10 +50,10 @@ gpg2 --passphrase `pass $CAMINHO_SENHA_PASS_GPG_PRIVADO` --batch --yes -d $ARQUI
 
 echo " "
 echo "Configurando a confibilidade da chave $ARQUIVO_PASS_SIMETRICO"
-echo -e "trust\n5\ny\n" | gpg --command-fd 0 --edit-key $ENDERECO_EMAIL_GPG_PASS
+echo -e "trust\n5\ny\n" | gpg2 --command-fd 0 --edit-key $ENDERECO_EMAIL_GPG_PASS
 echo " "
 echo "Configurando a confiabilidade da chave $ARQUIVO_GPG_SIMETRICO"
-echo -e "trust\n5\ny\n" | gpg --command-fd 0 --edit-key $ENDERECO_EMAIL_GPG_PRIVADO
+echo -e "trust\n5\ny\n" | gpg2 --command-fd 0 --edit-key $ENDERECO_EMAIL_GPG_PRIVADO
 
 echo " "
 echo "---"
