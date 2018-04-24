@@ -6,7 +6,7 @@
 ###
 ###
 ###		Data de início: 30/12/17
-###		Data da última modificação: 30/12/17
+###		Data da última modificação: 23/04/18
 ###		Desenvolvido por Giuliana
 ###		Script: pacotes-base.sh
 ###		Comentário: É o primeiro script. Espero separar em módulos, pois não precisarei fazer sempre
@@ -18,7 +18,7 @@
 
 # A lista dos pacotes basicos a serem instalados
 #
-pacotes=("vim" "tmux" "git" "bash-completion" "pass" "mutt" "pandoc" "i3status" "tmate" "gnupg")
+pacotes=("vim" "tmux" "git" "bash-completion" "pass" "mutt" "pandoc" "i3status" "tmate" "gnupg" "xclip")
 
 #Criando um logfile
 #
